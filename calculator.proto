@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package calculator;
+
+service CalculatorService {
+  rpc Add (TwoNumbers) returns (Result);
+  rpc Mul (TwoNumbers) returns (Result);
+  rpc Sub (TwoNumbers) returns (Result);
+  rpc Div (TwoNumbers) returns (Result);
+  rpc Pow (TwoNumbers) returns (Result);
+  rpc TestDeadline (TwoNumbers) returns (stringResult);
+  rpc Login (loginDto) returns (token);
+}
+
+message TwoNumbers {
+  double number1 = 1;
+  double number2 = 2;
+}
+
+message Result {
+  double value = 1;
+}
+
+message loginDto {
+  string username = 1;
+  string password = 2;
+}
+
+message token {
+  string token = 1;
+}
+
+message stringResult {
+  string value = 1;
+}
